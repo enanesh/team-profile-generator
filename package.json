@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/enanesh/team-profile-generator#readme",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "index.js": "^0.0.3",
     "inquirer": "^8.2.4"
   },
