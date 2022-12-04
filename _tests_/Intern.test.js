@@ -7,7 +7,7 @@ test('Intern constructor and getName(),getId(),getEmail(),getSchool(),getRole() 
     expect(testIntern.getId()).toBe('003');
     expect(testIntern.getEmail()).toBe("priscila@thiscompany.com");
     expect(testIntern.getSchool()).toBe('UW');
-    expect(testIntern.getRole()).toBe("Employee");
+    expect(testIntern.getRole()).toBe("Intern");
 
 
 })
