@@ -15,16 +15,38 @@ return inquirer.prompt([
       type: "list",
       name: "menu",
       message:
-        "Please select tje role of the employee you want to add to your team:",
+        "Please select the role of the employee you want to add to your team:",
       choices: [
         "Add an employee",
         "Add an engineer",
+        "Add an Manager",
         "Add an intern",
-        "Finish building my team",
+        "Finish team",
       ],
     },
-  ]);
-};
+])
+    .then(answers => {
+        switch (answers.menu) {
+            case "Add an employee":
+                promptEmployee();
+                break;
+            case "Add an engineer":
+                promptEngineer();
+                break;
+            case "Add an Manager":
+                promptManager();
+                break;
+            case "Add an intern":
+                promptIntern();
+            //default ADD CREATE FILE 
+        }
+        
+    })
+    
+}
+
+
+//QUESTIONS FOR EMPLOYEE TEAM MEMBER 
 
 const promptEmployee = () => {
   return inquirer.prompt([
@@ -67,8 +89,15 @@ const promptEmployee = () => {
 
       },
 
-  ]);
-};
+  ]).then(answers => {
+      console.log(answers);
+      const teamEmployee = new Employee(answers.employeeName, answers.employeeID, answers.employeeEmail);
+      team.push(teamEmployee);
+      menu();
+  })
+}
+
+
 
 const promptEngineer = () => {
     return inquirer.prompt([
@@ -125,7 +154,7 @@ const promptEngineer = () => {
         },
 
     ]);
-};
+}
 
 
 const promptIntern = () => {
@@ -183,7 +212,7 @@ const promptIntern = () => {
         },
 
     ]);
-};
+}
 
 const promptManager = () => {
     return inquirer.prompt([
@@ -240,10 +269,23 @@ const promptManager = () => {
         },
 
     ]);
-};
+}
+
+
+// function init() {
+//     inquirer.prompt(questions)
+//         .then((data)) => {
+//         const 
+//     }
+    
+// }
+
+
+//FUNCTION TO WRITE FILE 
+// function writteToFile(){}
 
 
 
 
+menu();
 
-promptManager();
