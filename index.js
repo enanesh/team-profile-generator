@@ -3,9 +3,14 @@ const fs = require("fs");
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager")
 const siteTemplate = require("./src/site-template");
 const { Console } = require("console");
-const team = [];
+const arrayEmployee = [];
+const arrayEngineer = [];
+const arrayIntern = [];
+const arrayManager = [];
+
 
 //TODO:create an array of questions for user input
 
@@ -38,6 +43,25 @@ return inquirer.prompt([
                 break;
             case "Add an intern":
                 promptIntern();
+                break;
+            case "Finish team":
+                for (var i = 0; i < arrayEmployee.length; i++)
+                {
+                    console.log(arrayEmployee[i]);
+                }
+                for (var i = 0; i < arrayEngineer.length; i++) {
+                    console.log(arrayEngineer[i]);
+                }
+                for (var i = 0; i < arrayIntern.length; i++) {
+                    console.log(arrayIntern[i]);
+                }
+                for (var i = 0; i < arrayManager.length; i++) {
+                    console.log(arrayManager[i]);
+                }
+                siteTemplate.buildHTML(arrayEmployee, arrayEngineer, arrayIntern, arrayManager);
+                siteTemplate.buildHTML(team);
+
+                break;
             //default ADD CREATE FILE 
         }
         
@@ -92,12 +116,13 @@ const promptEmployee = () => {
   ]).then(answers => {
       console.log(answers);
       const teamEmployee = new Employee(answers.employeeName, answers.employeeID, answers.employeeEmail);
-      team.push(teamEmployee);
+      arrayEmployee.push(teamEmployee);
+      
       menu();
   })
 }
 
-
+//QUESTIONS FOR ENGINEER TEAM MEMBER 
 
 const promptEngineer = () => {
     return inquirer.prompt([
@@ -129,7 +154,7 @@ const promptEngineer = () => {
         {
             type: "input",
             message: "Enter engineer email (e.g. employee@thiscompany.com): ",
-            name: "employeeEmail",
+            name: "engineerEmail",
             validate: (value) => {
                 if (value) {
                     return true;
@@ -142,7 +167,7 @@ const promptEngineer = () => {
         {
             type: "input",
             message: "Enter engineer Github username: ",
-            name: "employeeGithub",
+            name: "engineerGithub",
             validate: (value) => {
                 if (value) {
                     return true;
@@ -153,7 +178,12 @@ const promptEngineer = () => {
 
         },
 
-    ]);
+    ]).then(answers => {
+        console.log(answers);
+        const teamEngineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail,answers.engineerGithub);
+        arrayEngineer.push(teamEngineer);
+        menu();
+    })
 }
 
 
@@ -211,7 +241,12 @@ const promptIntern = () => {
 
         },
 
-    ]);
+    ]).then(answers => {
+        console.log(answers);
+        const teamIntern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
+        arrayIntern.push(teamIntern);
+        menu();
+    })
 }
 
 const promptManager = () => {
@@ -257,7 +292,7 @@ const promptManager = () => {
         {
             type: "input",
             message: "Enter manager office number (e.g. 01): ",
-            name: "manager",
+            name: "managerOffice",
             validate: (value) => {
                 if (value) {
                     return true;
@@ -268,7 +303,12 @@ const promptManager = () => {
 
         },
 
-    ]);
+    ]).then(answers => {
+        console.log(answers);
+        const teamManager = new Manager(answers.managerName, answers.managerID, answers.managerEmail,answers.managerOffice);
+        arrayManager.push(teamManager);
+        menu();
+    })
 }
 
 
