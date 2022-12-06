@@ -46,7 +46,8 @@ return inquirer.prompt([
                 break;
             case "Finish team":
 
-                siteTemplate.buildHTML(arrayEmployee, arrayEngineer, arrayIntern, arrayManager);
+                const html = siteTemplate.buildHTML(arrayEmployee, arrayEngineer, arrayIntern, arrayManager);
+                writeToFile( "./dist/outputTeamProfile.html", html);
 
                 break;
             

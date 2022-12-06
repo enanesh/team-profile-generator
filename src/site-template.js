@@ -33,7 +33,7 @@ const buildHTML = (employees, engineers, interns, managers) => {
   }
   // console.log(htmlEmployees);
 
-  let finalHtml = `< !DOCTYPE html >
+  let finalHtml = `<!DOCTYPE html>
     <html lang="en">
 
       <head>
@@ -53,7 +53,7 @@ const buildHTML = (employees, engineers, interns, managers) => {
         </header>
 
 
-        <div class="container container mx-auto py-10 px-10">
+        <div class="flex space-x-12 content mx-auto py-10 px-10">
         
         
          ${htmlEmployees}
@@ -95,9 +95,8 @@ const templateEmployee = (teamEmployee) => {
      <div>
 
     <ul class="font-normal text-gray-700 dark:text-gray-400 border-gray-200  p-7">
-      <li class="p-3 text-xl">ID: ${teamEmployee.getId()}</li>
-      <li class="p-3 text-xl">Email:<span id="email">
-      <a href="mailto:${teamEmployee.getEmail()}">${teamEmployee.getEmail()}</a>
+      <li class="p-3 text-l">ID: ${teamEmployee.getId()}</li>
+      <li class="p-3 text-l">Email:<span id="email"><a class="text-sm text-blue-800" href="mailto:${teamEmployee.getEmail()}">${teamEmployee.getEmail()}</a>
       </span>
       </li>
 
@@ -120,15 +119,15 @@ const templateEngineer = (teamEngineer) => {
     <div class="mb-2 bg-blue-500 text-2xl p-4 text-center rounded-lg font-bold tracking-tight text-white dark:text-white">
       <p>${teamEngineer.getName()}</p>
       
-      <h4><i class="fa-solid fa-briefcase"></i> Employee</h4>
+      <h4><i class="fa-solid fa-glasses"></i> Engineer</h4>
     </div>
 
      <div>
 
-    <ul class="font-normal text-gray-700 dark:text-gray-400 border-gray-200  p-7">
-      <li class="p-3 text-xl">ID: ${teamEngineer.getName()}</li>
-      <li class="p-3 text-xl">Email:<span id="email"><a href="mailto:${teamEngineer.getEmail()}">${teamEngineer.getEmail()}</a></span></li>
-      <li class="list-group-item"> Github Username: <a target="_blank" href="https://github.com/${teamEngineer.getGithub()}">${teamEngineer.getGithub()}</a></li>
+    <ul class="font-normal bg-white text-gray-700 dark:text-gray-400 border-gray-800 border-solid p-4">
+      <li class="p-3 text-xl ">ID: ${teamEngineer.getName()}</li>
+      <li class="p-3 text-xl ">Email:<span id="email"><a class="text-sm text-blue-800" href="mailto:${teamEngineer.getEmail()}">${teamEngineer.getEmail()}</a></span></li>
+      <li class="p-3 text-l"> Github Username: <a class="text-sm text-blue-800" target="_blank" href="https://github.com/${teamEngineer.getGithub()}">${teamEngineer.getGithub()}</a></li>
 
     </ul>
 
@@ -148,15 +147,15 @@ const templateIntern = (teamIntern) => {
     <div class="mb-2 bg-blue-500 text-2xl p-4 text-center rounded-lg font-bold tracking-tight text-white dark:text-white">
       <p>${teamIntern.getName()}</p>
       
-      <h4><i class="fa-solid fa-user-graduate"></i> Employee</h4>
+      <h4><i class="fa-solid fa-user-graduate"></i> Intern</h4>
     </div>
 
      <div>
 
     <ul class="font-normal text-gray-700 dark:text-gray-400 border-gray-200  p-7">
       <li class="p-3 text-xl">ID: ${teamIntern.getId()}</li>
-      <li class="p-3 text-xl">Email:<span id="email"><a href="mailto:${teamIntern.getEmail}">${teamIntern.getEmail}</a></span></li>
-     <li class="p-3 text-xl">School: ${teamIntern.getSchool}</li>
+      <li class="p-3 text-xl">Email:<span id="email"><a class="text-sm text-blue-800" href="mailto:${teamIntern.getEmail()}">${teamIntern.getEmail()}</a></span></li>
+     <li class="p-3 text-xl">School: ${teamIntern.getSchool()}</li>
     </ul>
 
     </div>
@@ -176,15 +175,15 @@ const templateManager = (teamManager) => {
     <div class="mb-2 bg-blue-500 text-2xl p-4 text-center rounded-lg font-bold tracking-tight text-white dark:text-white">
       <p>${teamManager.getName()}</p>
       
-      <h4><i class="fa-solid fa-user-graduate"></i> Employee</h4>
+      <h4><i class="fa-sharp fa-solid fa-briefcase"></i> Manager</h4>
     </div>
 
      <div>
 
     <ul class="font-normal text-gray-700 dark:text-gray-400 border-gray-200  p-7">
-      <li class="p-3 text-xl">ID: ${teamManager.getId()}</li>
-      <li class="p-3 text-xl">Email:<span id="email"><a href="mailto:${teamManager.getEmail()}">${teamManager.getEmail()}</a></span></li>
-     <li class="p-3 text-xl">School: ${teamManager.getEmail()}</li>
+      <li class="p-3 text-l">ID: ${teamManager.getId()}</li>
+      <li class="p-3 text-l">Email:<span id="email"><a class="text-sm text-blue-800" href="mailto:${teamManager.getEmail()}">${teamManager.getEmail()}</a></span></li>
+     <li class="p-3 text-l">Office Number: ${teamManager.getOfficeNumber()}</li>
     </ul>
 
     </div>
