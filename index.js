@@ -45,21 +45,8 @@ return inquirer.prompt([
                 promptIntern();
                 break;
             case "Finish team":
-                for (var i = 0; i < arrayEmployee.length; i++)
-                {
-                    console.log(arrayEmployee[i]);
-                }
-                for (var i = 0; i < arrayEngineer.length; i++) {
-                    console.log(arrayEngineer[i]);
-                }
-                for (var i = 0; i < arrayIntern.length; i++) {
-                    console.log(arrayIntern[i]);
-                }
-                for (var i = 0; i < arrayManager.length; i++) {
-                    console.log(arrayManager[i]);
-                }
+
                 siteTemplate.buildHTML(arrayEmployee, arrayEngineer, arrayIntern, arrayManager);
-                siteTemplate.buildHTML(team);
 
                 break;
             //default ADD CREATE FILE 
@@ -292,7 +279,7 @@ const promptManager = () => {
         {
             type: "input",
             message: "Enter manager office number (e.g. 01): ",
-            name: "managerOffice",
+            name: "officeNumber",
             validate: (value) => {
                 if (value) {
                     return true;
@@ -305,7 +292,7 @@ const promptManager = () => {
 
     ]).then(answers => {
         console.log(answers);
-        const teamManager = new Manager(answers.managerName, answers.managerID, answers.managerEmail,answers.managerOffice);
+        const teamManager = new Manager(answers.managerName, answers.managerID, answers.managerEmail,answers.officeNumber);
         arrayManager.push(teamManager);
         menu();
     })
