@@ -49,7 +49,7 @@ return inquirer.prompt([
                 siteTemplate.buildHTML(arrayEmployee, arrayEngineer, arrayIntern, arrayManager);
 
                 break;
-            //default ADD CREATE FILE 
+            
         }
         
     })
@@ -298,19 +298,17 @@ const promptManager = () => {
     })
 }
 
-
-// function init() {
-//     inquirer.prompt(questions)
-//         .then((data)) => {
-//         const 
-//     }
-    
-// }
+function writeToFile(outputPhat,fileName, data) {
 
 
-//FUNCTION TO WRITE FILE 
-// function writteToFile(){}
-
+    fs.writeFile(outputPhat,fileName, data, (err) => {
+        if (err) {
+            console.log(err)
+            return;
+        }
+        console.log("Your HTML has been generated");
+    })
+};
 
 
 
