@@ -91,11 +91,10 @@ Inquirer: https://www.npmjs.com/package/inquirer/v/8.2.4?activeTab=readme
 
 ## Technology Used
 - HTML
-- CSS
+- Tailwind
 - JavaScript
 - Node.js
 - Inquirer
-- Path
 - Jest
 
 
