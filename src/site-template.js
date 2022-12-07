@@ -68,7 +68,7 @@ const buildHTML = (employees, engineers, interns, managers) => {
         
 
         `;
-  console.log(finalHtml)
+
   return finalHtml;
 
 
@@ -81,7 +81,6 @@ const buildHTML = (employees, engineers, interns, managers) => {
  * @returns string
  */
 const templateEmployee = (teamEmployee) => {
-    console.log(teamEmployee);
 
   let cardEmployee =
     ` <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-blue-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800 w-80 bg-gray-100">
@@ -111,7 +110,6 @@ const templateEmployee = (teamEmployee) => {
 
 
 const templateEngineer = (teamEngineer) => {
-    console.log(teamEngineer);
 
     let cardEngineer =
         ` <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-blue-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800 w-80 bg-gray-100">
@@ -124,7 +122,7 @@ const templateEngineer = (teamEngineer) => {
 
      <div>
 
-    <ul class="font-normal bg-white text-gray-700 dark:text-gray-400 border-gray-800 border-solid p-4">
+    <ul class="font-normal  text-gray-700 dark:text-gray-400 border-gray-800 border-solid p-4">
       <li class="p-3 text-xl ">ID: ${teamEngineer.getName()}</li>
       <li class="p-3 text-xl ">Email:<span id="email"><a class="text-sm text-blue-800" href="mailto:${teamEngineer.getEmail()}">${teamEngineer.getEmail()}</a></span></li>
       <li class="p-3 text-l"> Github Username: <a class="text-sm text-blue-800" target="_blank" href="https://github.com/${teamEngineer.getGithub()}">${teamEngineer.getGithub()}</a></li>
@@ -139,7 +137,6 @@ const templateEngineer = (teamEngineer) => {
 }
 
 const templateIntern = (teamIntern) => {
-    console.log(teamIntern);
 
     let cardIntern =
         ` <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-blue-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800 w-80 bg-gray-100">
@@ -167,8 +164,7 @@ const templateIntern = (teamIntern) => {
 
 
 const templateManager = (teamManager) => {
-    console.log(teamManager);
-
+   
     let cardManager =
         ` <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-blue-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800 w-80 bg-gray-100">
 
